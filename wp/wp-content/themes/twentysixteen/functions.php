@@ -391,10 +391,10 @@ function twentysixteen_scripts() {
 	wp_enqueue_style( 'genericons', get_template_directory_uri() . '/genericons/genericons.css', array(), '20201208' );
 
 	// Theme stylesheet.
-	wp_enqueue_style( 'twentysixteen-style', get_stylesheet_uri(), array(), '20231107' );
+	wp_enqueue_style( 'twentysixteen-style', get_stylesheet_uri(), array(), '20230808' );
 
 	// Theme block stylesheet.
-	wp_enqueue_style( 'twentysixteen-block-style', get_template_directory_uri() . '/css/blocks.css', array( 'twentysixteen-style' ), '20231016' );
+	wp_enqueue_style( 'twentysixteen-block-style', get_template_directory_uri() . '/css/blocks.css', array( 'twentysixteen-style' ), '20230628' );
 
 	// Load the Internet Explorer specific stylesheet.
 	wp_enqueue_style( 'twentysixteen-ie', get_template_directory_uri() . '/css/ie.css', array( 'twentysixteen-style' ), '20170530' );
@@ -413,7 +413,7 @@ function twentysixteen_scripts() {
 	wp_script_add_data( 'twentysixteen-html5', 'conditional', 'lt IE 9' );
 
 	// Skip-link fix is no longer enqueued by default.
-	wp_register_script( 'twentysixteen-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20230526', array( 'in_footer' => true ) );
+	wp_register_script( 'twentysixteen-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20230526', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -423,16 +423,7 @@ function twentysixteen_scripts() {
 		wp_enqueue_script( 'twentysixteen-keyboard-image-navigation', get_template_directory_uri() . '/js/keyboard-image-navigation.js', array( 'jquery' ), '20170530' );
 	}
 
-	wp_enqueue_script(
-		'twentysixteen-script',
-		get_template_directory_uri() . '/js/functions.js',
-		array( 'jquery' ),
-		'20230629',
-		array(
-			'in_footer' => false, // Because involves header.
-			'strategy'  => 'defer',
-		)
-	);
+	wp_enqueue_script( 'twentysixteen-script', get_template_directory_uri() . '/js/functions.js', array( 'jquery' ), '20230629', true );
 
 	wp_localize_script(
 		'twentysixteen-script',

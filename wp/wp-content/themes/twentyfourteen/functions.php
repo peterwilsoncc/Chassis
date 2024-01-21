@@ -345,7 +345,7 @@ function twentyfourteen_scripts() {
 	wp_enqueue_style( 'genericons', get_template_directory_uri() . '/genericons/genericons.css', array(), '3.0.3' );
 
 	// Load our main stylesheet.
-	wp_enqueue_style( 'twentyfourteen-style', get_stylesheet_uri(), array(), '20231107' );
+	wp_enqueue_style( 'twentyfourteen-style', get_stylesheet_uri(), array(), '20230808' );
 
 	// Theme block stylesheet.
 	wp_enqueue_style( 'twentyfourteen-block-style', get_template_directory_uri() . '/css/blocks.css', array( 'twentyfourteen-style' ), '20230630' );
@@ -367,16 +367,7 @@ function twentyfourteen_scripts() {
 	}
 
 	if ( is_front_page() && 'slider' === get_theme_mod( 'featured_content_layout' ) ) {
-		wp_enqueue_script(
-			'twentyfourteen-slider',
-			get_template_directory_uri() . '/js/slider.js',
-			array( 'jquery' ),
-			'20150120',
-			array(
-				'in_footer' => false, // Because involves header.
-				'strategy'  => 'defer',
-			)
-		);
+		wp_enqueue_script( 'twentyfourteen-slider', get_template_directory_uri() . '/js/slider.js', array( 'jquery' ), '20150120', true );
 		wp_localize_script(
 			'twentyfourteen-slider',
 			'featuredSliderDefaults',
@@ -387,16 +378,7 @@ function twentyfourteen_scripts() {
 		);
 	}
 
-	wp_enqueue_script(
-		'twentyfourteen-script',
-		get_template_directory_uri() . '/js/functions.js',
-		array( 'jquery' ),
-		'20230526',
-		array(
-			'in_footer' => false, // Because involves header.
-			'strategy'  => 'defer',
-		)
-	);
+	wp_enqueue_script( 'twentyfourteen-script', get_template_directory_uri() . '/js/functions.js', array( 'jquery' ), '20230526', true );
 }
 add_action( 'wp_enqueue_scripts', 'twentyfourteen_scripts' );
 
@@ -542,7 +524,7 @@ if ( ! function_exists( 'twentyfourteen_list_authors' ) ) :
 		/**
 		 * Filters query arguments for listing authors.
 		 *
-		 * @since Twenty Fourteen 3.3
+		 * @since 3.3
 		 *
 		 * @param array $args Query arguments.
 		 */

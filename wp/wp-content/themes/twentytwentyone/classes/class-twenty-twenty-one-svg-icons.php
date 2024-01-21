@@ -249,4 +249,5 @@ class Twenty_Twenty_One_SVG_Icons {
 		}
 		return null;
 	}
+
 }

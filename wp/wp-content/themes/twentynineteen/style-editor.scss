@@ -36,7 +36,6 @@ body {
 
 	@include media(tablet) {
 
-		&.block-editor-iframe__body,
 		&.block-editor-writing-flow,
 		.block-editor-writing-flow {
 			max-width: 80%;
@@ -382,7 +381,7 @@ figcaption,
 .wp-block-button {
 
 	.wp-block-button__link {
-		line-height:inherit;
+		line-height: 1.8;
 		@include font-family( $font__heading );
 		font-size: $font__size-sm;
 		font-weight: bold;
